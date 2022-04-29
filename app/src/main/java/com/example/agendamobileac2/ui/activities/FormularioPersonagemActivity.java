@@ -1,7 +1,6 @@
 package com.example.agendamobileac2.ui.activities;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import static com.example.agendamobileac2.ui.activities.ConstatesActivities.CHAVE_PERSONAGEM;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,13 +8,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
-import com.example.agendamobileac2.R;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.agendamobileac2.dao.PersonagemDAO;
 import com.example.agendamobileac2.model.Personagem;
+import com.example.agendamobileac2.R;
 import com.github.rtoshiro.util.format.SimpleMaskFormatter;
 import com.github.rtoshiro.util.format.text.MaskTextWatcher;
-
-import static com.example.agendamobileac2.ui.activities.ConstatesActivities.CHAVE_PERSONAGEM;
 
 public class FormularioPersonagemActivity extends AppCompatActivity {
     private static final String TITULO_APPBAR_EDITA_PERSONAGEM = "Editar o Personagem";

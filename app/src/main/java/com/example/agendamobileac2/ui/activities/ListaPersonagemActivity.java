@@ -1,5 +1,7 @@
 package com.example.agendamobileac2.ui.activities;
 
+import static com.example.agendamobileac2.ui.activities.ConstatesActivities.CHAVE_PERSONAGEM;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,11 +18,9 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.agendamobileac2.dao.PersonagemDAO;
-import com.example.agendamobileac2.R;
 import com.example.agendamobileac2.model.Personagem;
+import com.example.age.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import static com.example.agendamobileac2.ui.activities.ConstatesActivities.CHAVE_PERSONAGEM;
 
 public class ListaPersonagemActivity extends AppCompatActivity {
     public static final String TITULO_APPBAR = "Lista de Personagens";

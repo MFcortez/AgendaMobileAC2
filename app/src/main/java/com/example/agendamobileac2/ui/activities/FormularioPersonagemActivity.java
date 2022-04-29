@@ -17,6 +17,7 @@ import com.example.agendamobileac2.R;
 import com.github.rtoshiro.util.format.SimpleMaskFormatter;
 import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 
+//
 public class FormularioPersonagemActivity extends AppCompatActivity {
     private static final String TITULO_APPBAR_EDITA_PERSONAGEM = "Editar o Personagem";
     private static final String TITULO_APPBAR_NOVO_PERSONAGEM = "Novo Personagem";
@@ -26,12 +27,14 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
     private final PersonagemDAO dao = new PersonagemDAO();
     private Personagem personagem;
 
+    //
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_formulario_personagem_menu_salvar, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
+    //
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item){
         int itemId = item.getItemId();
@@ -41,6 +44,7 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -51,6 +55,7 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
         carregaPersonagem();
     }
 
+    //
     private void carregaPersonagem() {
         Intent dados = getIntent();
         if (dados.hasExtra(CHAVE_PERSONAGEM)) {
@@ -62,12 +67,15 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
             personagem = new Personagem();
         }
     }
+
+    //
     private void preenchaCampos() {
         campoNome.setText(personagem.getNome());
         campoAltura.setText(personagem.getAltura());
         campoNascimento.setText(personagem.getNascimento());
     }
 
+    //
     private void finalizarFormulario()
     {
         preencherPersonagem();
@@ -79,6 +87,7 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
         finish();
     }
 
+    //
     private void inicializacaoCampos() {
         campoNome = findViewById(R.id.editText_Nome);
         campoNascimento = findViewById(R.id.editText_Nascimento);
@@ -88,11 +97,12 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
         MaskTextWatcher mtwAltura = new MaskTextWatcher(campoAltura, smfAltura);
         campoAltura.addTextChangedListener(mtwAltura);
 
-        SimpleMaskFormatter smfNascimento = new SimpleMaskFormatter("N,NN");
+        SimpleMaskFormatter smfNascimento = new SimpleMaskFormatter("NN/NN/NNNN");
         MaskTextWatcher mtwNascimento = new MaskTextWatcher(campoNascimento, smfNascimento);
-        campoAltura.addTextChangedListener(mtwNascimento);
+        campoNascimento.addTextChangedListener(mtwNascimento);
     }
 
+    //
     private void preencherPersonagem() {
         String nome = campoNome.getText().toString();
         String nascimento = campoNascimento.getText().toString();

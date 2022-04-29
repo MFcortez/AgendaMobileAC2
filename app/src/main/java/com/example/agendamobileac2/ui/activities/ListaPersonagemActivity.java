@@ -19,14 +19,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.agendamobileac2.dao.PersonagemDAO;
 import com.example.agendamobileac2.model.Personagem;
-import com.example.age.R;
+import com.example.agendamobileac2.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+//
 public class ListaPersonagemActivity extends AppCompatActivity {
     public static final String TITULO_APPBAR = "Lista de Personagens";
     private final PersonagemDAO dao = new PersonagemDAO();
     private ArrayAdapter<Personagem> adapter;
 
+    //
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +38,7 @@ public class ListaPersonagemActivity extends AppCompatActivity {
         configuraLista();
     }
 
+    //
     private void configuraFabNovoPersonagem() {
         FloatingActionButton botaoNovoPersonagem = findViewById(R.id.fab_add);
         botaoNovoPersonagem.setOnClickListener(new View.OnClickListener()
@@ -45,26 +48,31 @@ public class ListaPersonagemActivity extends AppCompatActivity {
         });
     }
 
+    //
     private void abreFormulario() {
         startActivity(new Intent(this, FormularioPersonagemActivity.class));
     }
 
+    //
     @Override
     protected void onResume() {
         super.onResume();
         atualizaPersonagem();
     }
 
+    //
     private void atualizaPersonagem() {
         adapter.clear();
         adapter.addAll(dao.todos());
     }
 
+    //
     private void remove(Personagem personagem){
         dao.remove(personagem);
         adapter.remove(personagem);
     }
 
+    //
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
@@ -72,10 +80,11 @@ public class ListaPersonagemActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.activity_lista_personagem_menu, menu);
     }
 
+    //
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
-        if (itemId == R.id.activity_lista_personagem_menu_remover){
+        if (itemId == R.id.activity_formulario_personagem_menu_remover){
             new AlertDialog.Builder(this)
                     .setTitle("Removendo Personagem")
                     .setMessage("Tem certeza que quer remover?")
@@ -94,6 +103,7 @@ public class ListaPersonagemActivity extends AppCompatActivity {
         return super.onContextItemSelected(item);
     }
 
+    //
     private void configuraLista(){
         ListView listaDePersonagens = findViewById(R.id.activity_main_lista_personagem);
         configuraAdapter(listaDePersonagens);
@@ -101,6 +111,7 @@ public class ListaPersonagemActivity extends AppCompatActivity {
         registerForContextMenu(listaDePersonagens);
     }
 
+    //
     private void configuraItemPorClique(ListView listaDePersonagens) {
         listaDePersonagens.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -111,12 +122,14 @@ public class ListaPersonagemActivity extends AppCompatActivity {
         });
     }
 
+    //
     private void abreFormularioEditar(Personagem personagemEscolhido) {
         Intent vaiParaFormulario = new Intent(ListaPersonagemActivity.this, FormularioPersonagemActivity.class);
         vaiParaFormulario.putExtra(CHAVE_PERSONAGEM, personagemEscolhido);
         startActivity(vaiParaFormulario);
     }
 
+    //
     private void configuraAdapter(ListView listaDePersonagens){
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
         listaDePersonagens.setAdapter(adapter);

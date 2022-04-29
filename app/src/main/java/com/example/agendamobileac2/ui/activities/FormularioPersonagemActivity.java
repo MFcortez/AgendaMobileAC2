@@ -49,7 +49,6 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
         inicializacaoCampos();
         //configuraBotaoSalvar();
         carregaPersonagem();
-        checaPermissoes();
     }
 
     private void carregaPersonagem() {
@@ -74,7 +73,6 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
         preencherPersonagem();
         if (personagem.IdValido()) {
             dao.edita(personagem);
-            finish();
         } else {
             dao.salva(personagem);
         }
@@ -82,9 +80,9 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
     }
 
     private void inicializacaoCampos() {
-        campoNome = findViewById(R.id.editText_nome);
-        campoNascimento = findViewById(R.id.editText_nascimento);
-        campoAltura = findViewById(R.id.editText_altura);
+        campoNome = findViewById(R.id.editText_Nome);
+        campoNascimento = findViewById(R.id.editText_Nascimento);
+        campoAltura = findViewById(R.id.editText_Altura);
 
         SimpleMaskFormatter smfAltura = new SimpleMaskFormatter("N,NN");
         MaskTextWatcher mtwAltura = new MaskTextWatcher(campoAltura, smfAltura);

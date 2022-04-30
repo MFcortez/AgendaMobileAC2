@@ -18,7 +18,7 @@ public class Personagem implements Serializable {
         this.altura = altura;
     }
 
-    //
+    //Metodo para que o app faca algo quando personagem nao tiver uma entrada (futuramente aviso)
     public Personagem() {
 
     }
@@ -44,21 +44,20 @@ public class Personagem implements Serializable {
     public String getAltura() {
         return altura;
     }
+    public int getId() { return id; }
 
+    //Utilizado para retornar o nome do personagem quando a classe for chamada como string
     @NonNull
     @Override
     public String toString() {
         return nome;
     }
 
+    //Chamado ao salvar o personagem para definir um id ah entrada
     public void setId(int id) {
         this.id = id;
     }
-
-    public int getId() {
-        return id;
-    }
-
+    
     public boolean IdValido() {
         return id > 0;
     }

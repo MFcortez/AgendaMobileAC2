@@ -5,6 +5,7 @@ import com.example.agendamobileac2.model.Personagem;
 import java.util.List;
 import java.util.ArrayList;
 
+//faz o intermedio das informacoes da classe personagem com a visulizacao dele nas telas
 public class PersonagemDAO {
 
     //a var personagens eh utilizada para guardar as entradas de dados do app e o int para manter a informacao do numero de entradas dentro da lista

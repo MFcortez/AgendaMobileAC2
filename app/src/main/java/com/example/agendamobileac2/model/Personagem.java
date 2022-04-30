@@ -4,14 +4,14 @@ import androidx.annotation.NonNull;
 
 import java.io.Serializable;
 
-//
+//Declara a classe personagem junto de suas variaveis
 public class Personagem implements Serializable {
     private String nome;
     private String nascimento;
     private String altura;
     private int id = 0;
 
-    //
+    //constroe a classe personagem tendo como entradas as variaveis declaradas acima
     public Personagem(String nome, String nascimento, String altura) {
         this.nome = nome;
         this.nascimento = nascimento;
@@ -23,29 +23,24 @@ public class Personagem implements Serializable {
 
     }
 
-    //
+    //Definem o valor das variaveis do personagem
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-    //
     public void setNascimento(String nascimento) {
         this.nascimento = nascimento;
     }
-
-    //
     public void setAltura(String altura) {
         this.altura = altura;
     }
 
+    //Pegam as variaveis do personagem para leitura
     public String getNome() {
         return nome;
     }
-
     public String getNascimento() {
         return nascimento;
     }
-
     public String getAltura() {
         return altura;
     }
